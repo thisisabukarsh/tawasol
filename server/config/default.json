@@ -1,4 +1,4 @@
 {
     "mongoConnectionString": "mongodb+srv://thisisabukarsh:uey1RjVR8gK8C5A4@clustertawasol.6r3k67y.mongodb.net/Tawasol?retryWrites=true&w=majority&appName=ClusterTawasol"
-    
+    ,"jwtSecretToken": "thisisabukarsh the big secret token "
 }
