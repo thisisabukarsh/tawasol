@@ -4,9 +4,7 @@
   "description": "tawasol app ",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "start:server": "pm2 start server.js --watch",
-    "stop:server": "pm2 stop server.js"
+   "start": "nodemon server.js"
   },
   "author": "thisisabukarsh",
   "license": "MIT",
@@ -19,7 +17,6 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.4.3",
     "multer": "^1.4.5-lts.1",
-    "normalize-url": "^8.0.1",
-    "pm2": "^5.4.1"
+    "normalize-url": "^8.0.1"
   }
 }
