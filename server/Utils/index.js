@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const config = require("config");
+const multer = require("multer");
 
 /*
 Middleware to authenticate requests using JWT
@@ -27,4 +28,16 @@ const auth = (req, res, next) => {
   }
 };
 
-module.exports = { auth };
+// Configure multer disk storage for handling file uploads
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "public/images");
+  },
+  filename: function (req, file, cb) {
+    cb(null, `${req.user.id}`);
+  },
+});
+
+const upload = multer({ storage: storage }).single("");
+
+module.exports = { auth, upload };
