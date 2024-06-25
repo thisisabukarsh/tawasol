@@ -4,6 +4,7 @@ const router = express.Router();
 const { check, validationResult } = require("express-validator");
 const Profile = require("../models/Profile");
 const User = require("../models/User");
+const Post = require("../models/Post");
 
 //-----------------------POST http://localhost:5000/api/profiles/ ----------------------------------------------------
 router.post(
@@ -126,7 +127,7 @@ router.get("/user/:user_id", auth, async (req, res) => {
 router.delete("/", auth, async (req, res) => {
   try {
     await Promise.all([
-      //TODO: remove Posts
+      Post.deleteMany({ user: req.user_id }),
       Profile.findOneAndRemove({ user: req.user.id }),
       User.findOneAndRemove({ _id: req.user.id }),
     ]);
